@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 5px 15px;
+
+  background-color: #1976d2;
+}
+.city-auto:hover {
+  cursor: pointer;
+  background-color: #1976d2;
+}
+
+.toggle-btn {
+    width: 50px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.toggle-btn:hover{
+cursor: pointer;
+}

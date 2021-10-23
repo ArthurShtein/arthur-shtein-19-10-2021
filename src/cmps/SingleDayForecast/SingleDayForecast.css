@@ -1,0 +1,19 @@
+.single-day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  transition: 0.5 all;
+  width: 300px;
+}
+
+.single-day-container:hover {
+  cursor: pointer;
+  background-color: rgb(221, 221, 221);
+}
