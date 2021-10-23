@@ -30,3 +30,17 @@
   padding-top: 5px;
   margin-bottom: 10px;
 }
+
+.toggle-btn{
+  width: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #1976d2;
+  border: none;
+  color: white;
+  transition: 0.5s all;
+}
+
+.toggle-btn:hover{
+  background-color: #065bb1;
+}

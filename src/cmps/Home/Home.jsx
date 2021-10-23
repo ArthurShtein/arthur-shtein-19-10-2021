@@ -58,7 +58,7 @@ export const  Home = () => {
     <>
       <div className={className}>
         <div className="input-header">
-        <button onClick={changeTheme}> toggle </button>
+        <button className='toggle-btn' onClick={changeTheme}> Change Theme </button>
           <h2 className="header-search">Search the weather in any city:</h2>
           <Autocomplete
             className="input"

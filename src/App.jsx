@@ -12,6 +12,7 @@ function App() {
       <main>
         <Switch>
           <Route excact path="/favourites" component={Favourites} />
+          <Route excact path="/" component={Home} />
         </Switch>
       </main>
     </HashRouter>
