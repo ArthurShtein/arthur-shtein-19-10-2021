@@ -4,29 +4,3 @@
   box-sizing: border-box;
   transition: 0.3s;
 }
-
-.darkmode {
-  background-color: black;
-  color: white;
-  height: 100vh;
-  width: 100vw;
-  transition: 0.5s;
-}
-
-.input {
-  z-index: 10;
-  background-color: white;
-}
-
-.input-header {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header-search{
-  padding-top: 5px;
-  margin-bottom: 10px;
-}

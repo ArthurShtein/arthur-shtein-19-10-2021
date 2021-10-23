@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
-import { useSelector } from "react-redux";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { utilService } from '../../utils.js'
+import { utilService } from "../../utils.js";
+import { useDispatch, useSelector } from "react-redux";
+import { saveToFavourites } from "../../store/actions/weatherAction.js";
 import "./CurrentDay.css";
-
 export const CurrentDay = ({ cityName }) => {
   const [isFavourite, setIsFavourite] = useState(false);
+
+  const favourites = useSelector((state) => state.weatherModule.favourites);
+
+  const dispatch = useDispatch();
 
   const singleForecast = useSelector(
     (state) => state.weatherModule.singleForecast
   );
+
+  function handleClick() {
+    setIsFavourite(!isFavourite);
+
+    // const cityToAdd = { city: cityName, temp: singleForecast.temp };
+    // const citysToSave = utilService.checkFavouritesDuplication(cityToAdd);
+    // console.log("citysToSave >>>", citysToSave);
+  }
 
   return (
     <div className="main-curr-day">
@@ -35,10 +47,7 @@ export const CurrentDay = ({ cityName }) => {
           ) : (
             <FavoriteBorderIcon className="icon"> </FavoriteBorderIcon>
           )}
-          <Button
-            variant="contained"
-            onClick={() => setIsFavourite(!isFavourite)}
-          >
+          <Button variant="contained" onClick={handleClick}>
             Save to favourites
           </Button>
         </div>

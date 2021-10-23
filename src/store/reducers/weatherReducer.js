@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   fiveDaysForecast: [],
   searchOptions: [],
   singleForecast: {},
+  favourites: [],
 };
 
 export function weatherReducer(state = INITIAL_STATE, action) {
@@ -37,6 +38,11 @@ export function weatherReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         singleForecast: action.singleNameKey,
+      };
+    case "SET_FAVOURITES":
+      return {
+        ...state,
+        favourites: action.cityName
       };
     default:
       return state;

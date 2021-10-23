@@ -6,10 +6,11 @@ export function loadAutoComplete(searchValue) {
     const autoCompleteResult = await weatherService.getAutoComplete(
       searchValue
     );
-    console.log(autoCompleteResult);
     dispatch({ type: "SET_SEARCH_OPTIONS", autoCompleteResult });
   };
 }
+
+
 
 export function loadFiveDaysForecast(cityKey) {
   return async (dispatch) => {
@@ -21,9 +22,14 @@ export function loadFiveDaysForecast(cityKey) {
 export function loadCurrentLocation(name) {
   return async (dispatch) => {
     const currLocationResult = await weatherService.getCurrentLocation(name);
-    console.log(currLocationResult);
     // dispatch({ type: "SET_SINGLE_FORECAST", currLocationResult });
   };
+}
+
+export function saveToFavourites(object) {
+  return (dispatch) => {
+    dispatch({ type: "SET_FAVOURITES" , object});
+  }
 }
 
 export function saveNewCityKey(key) {

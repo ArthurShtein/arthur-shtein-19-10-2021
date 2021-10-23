@@ -9,11 +9,9 @@ export const FiveDaysForecast = () => {
   const fiveDaysForecast = useSelector(
     (state) => state.weatherModule.fiveDaysForecast
   );
-console.log(fiveDaysForecast);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(keyResult);
     dispatch(loadFiveDaysForecast(keyResult));
     // dispatch(saveNewCityName(keyResult));
   }, [keyResult]);

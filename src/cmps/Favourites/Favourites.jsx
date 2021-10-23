@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const Favourites = () => {
-    return (
-        <div>
-            <h1> THIS IS FAVOURITES</h1>
-        </div>
-    )
-}
+  //   const favourites = useSelector((state) => state.weatherModule.favourites);
+  //   console.log(favourites);
+
+  useEffect(() => {
+    let favouritesFromData = JSON.parse(localStorage.getItem("favourites"));
+  }, []);
+
+  return <div></div>;
+};
