@@ -10,8 +10,8 @@ import "./CurrentDay.css";
 export const CurrentDay = ({ cityName }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
-  const favourites = useSelector((state) => state.weatherModule.favourites);
-
+  // const favourites = useSelector((state) => state.weatherModule.favourites);
+  // console.log("ALL FAVOURITES CITY>>>>", favourites);
   const dispatch = useDispatch();
 
   const singleForecast = useSelector(
