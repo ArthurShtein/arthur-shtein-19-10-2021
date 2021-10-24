@@ -13,7 +13,7 @@ export const Favourites = () => {
   return (
     <div className="favourites-container">
       {favourites.map((city, index) => {
-        return <SingleFavouriteCity city={city}></SingleFavouriteCity>;
+        return <SingleFavouriteCity key={index} city={city}></SingleFavouriteCity>;
       })}
     </div>
   );

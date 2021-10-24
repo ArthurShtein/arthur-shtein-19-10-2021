@@ -32,6 +32,13 @@ export function saveToFavourites(city) {
   };
 }
 
+export function setToCelcius(boolean) {
+  console.log(boolean);
+  return (dispatch) => {
+    dispatch({ type: "SET_TO_CELCIUS", boolean });
+  };
+}
+
 export function saveNewCityKey(key) {
   console.log('KEY >>>', key);
   return (dispatch) => {

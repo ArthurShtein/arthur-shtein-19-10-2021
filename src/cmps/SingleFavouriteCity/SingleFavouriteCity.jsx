@@ -16,6 +16,7 @@ export const SingleFavouriteCity = ({ city }) => {
   const goToHomePage = () => {
     history.push({
       pathname: "/",
+      // state: (cityKey, cityName)
     });
   };
   const handleClick = () => {

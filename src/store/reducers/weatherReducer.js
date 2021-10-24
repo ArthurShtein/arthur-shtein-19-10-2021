@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   searchOptions: [],
   singleForecast: {},
   favourites: [],
+  isCelcius: false,
 };
 
 export function weatherReducer(state = INITIAL_STATE, action) {
@@ -43,6 +44,11 @@ export function weatherReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         favourites: action.finalFavourites,
+      };
+    case "SET_TO_CELCIUS":
+      return {
+        ...state,
+        isCelcius: action.boolean
       };
     default:
       return state;

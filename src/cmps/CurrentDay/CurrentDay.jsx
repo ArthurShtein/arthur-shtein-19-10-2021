@@ -7,9 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveToFavourites } from "../../store/actions/weatherAction.js";
 import "./CurrentDay.css";
 
-
-
-
 export const CurrentDay = ({ cityName }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -20,6 +17,15 @@ export const CurrentDay = ({ cityName }) => {
   const singleForecast = useSelector(
     (state) => state.weatherModule.singleForecast
   );
+
+  const degreeType = useSelector((state) => state.weatherModule.isCelcius);
+
+  let fTemp = singleForecast.temp;
+  let celciusTemp = cToF(fTemp);
+  function cToF(fTemp) {
+    var fToCel = ((fTemp - 32) * 5) / 9;
+    return Math.floor(fToCel);
+  }
 
   function handleClick() {
     setIsFavourite(!isFavourite);
@@ -39,7 +45,7 @@ export const CurrentDay = ({ cityName }) => {
           />
           <div>
             <h1> {singleForecast.cityName} </h1>
-            <h3> {singleForecast.temp}F° </h3>
+            {degreeType ? <h3> {celciusTemp}C°</h3> : <h3>{fTemp}F° </h3>}
           </div>
         </div>
         <div className="right-section">
