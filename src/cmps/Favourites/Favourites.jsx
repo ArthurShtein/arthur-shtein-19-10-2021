@@ -8,12 +8,18 @@ export const Favourites = () => {
   const favourites = useSelector((state) => state.weatherModule.favourites);
   // setFavCitys(favourites);
 
-
-  if (!favourites) return <div> No Favourites Citys </div>;
+  if (!favourites)
+    return (
+      <div>
+        <h2> No Favourites Citys </h2>
+      </div>
+    );
   return (
     <div className="favourites-container">
       {favourites.map((city, index) => {
-        return <SingleFavouriteCity key={index} city={city}></SingleFavouriteCity>;
+        return (
+          <SingleFavouriteCity key={index} city={city}></SingleFavouriteCity>
+        );
       })}
     </div>
   );

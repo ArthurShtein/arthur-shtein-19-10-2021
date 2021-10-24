@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
 import {
   loadAutoComplete,
   saveSingleForecast,
@@ -22,7 +24,7 @@ export const Home = () => {
   const [cityKey, setCityKey] = useState("215854");
   const [cityName, setCityName] = useState("Tel Aviv");
   const [className, setClassName] = useState("");
-  const [celcius, setCelcius] = useState(false);
+  const [celcius, setCelcius] = useState(true);
 
   let locationFromState = useSelector(
     (state) => state.weatherModule.currentLocation
@@ -73,14 +75,34 @@ export const Home = () => {
     <>
       <div className={className}>
         <div className="input-header">
-          <button className="toggle-btn" onClick={changeTheme}>
-            {" "}
-            Change Theme{" "}
-          </button>
-          <button className="toggle-btn" onClick={changeToCelcius}>
-            {" "}
-            Change Temperature{" "}
-          </button>
+          <div className="buttons-container">
+            <FormGroup>
+              <FormControlLabel
+                control={<Switch defaultChecked onClick={changeTheme} />}
+                label="Theme Switcher"
+              />
+              <FormControlLabel
+                control={
+                  <Switch
+                    defaultChecked
+                    color="warning"
+                    onClick={changeToCelcius}
+                  />
+                }
+                label="Temperature Switcher"
+              />
+            </FormGroup>
+            {/* <FormGroup>
+              <FormControlLabel
+                control={<Switch defaultChecked onClick={changeTheme} />}
+                label="Label"
+              />
+            </FormGroup> */}
+            {/* <FormControlLabel>
+                <Switch onClick={changeTheme} label="Label"></Switch>
+              </FormControlLabel>
+            <Switch color="warning" onClick={changeToCelcius}></Switch> */}
+          </div>
           <h2 className="header-search">Search the weather in any city:</h2>
           <Autocomplete
             className="input"

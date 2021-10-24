@@ -3,6 +3,7 @@ export const utilService = {
   checkFavouritesDuplication,
   saveToStorage,
   loadFromStorage,
+  cToF,
 };
 
 function padNum(number) {
@@ -15,7 +16,6 @@ function padNum(number) {
 }
 
 function checkFavouritesDuplication(favCountry) {
-  console.log("favCountry", favCountry);
   let arr = [];
 
   const countriesFromLocal = loadFromStorage("favourites");
@@ -26,19 +26,15 @@ function checkFavouritesDuplication(favCountry) {
   } else {
     arr = countriesFromLocal;
     arr.push(favCountry);
-    console.log('arr >>>', arr);
-
-    // const newArr = [];
-    // for (var i = 0; i < arr.length; i++) {
-    //   if (arr[i].city !== favCountry.city) arr.push(favCountry);
-    // }
     saveToStorage("favourites", arr);
     return arr;
   }
-
-  saveToStorage("favourites", arr);
-  return arr;
 }
+
+  function cToF(fTemp) {
+    var fToCel = ((fTemp - 32) * 5) / 9;
+    return Math.floor(fToCel);
+  }
 
 function saveToStorage(key, data) {
   var json = JSON.stringify(data);

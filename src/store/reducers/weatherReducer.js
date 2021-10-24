@@ -48,8 +48,14 @@ export function weatherReducer(state = INITIAL_STATE, action) {
     case "SET_TO_CELCIUS":
       return {
         ...state,
-        isCelcius: action.boolean
+        isCelcius: action.boolean,
       };
+    case "TOGGLE_FAVOURITE_CITY":
+      return {
+        ...state,
+        singleForecast: action.cityObject,
+      };
+
     default:
       return state;
   }

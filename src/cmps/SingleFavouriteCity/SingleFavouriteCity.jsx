@@ -11,6 +11,8 @@ import "./SingleFavouriteCity.css";
 export const SingleFavouriteCity = ({ city }) => {
   const { cityName, cityKey, temp, icon } = city;
 
+  const degreeType = useSelector((state) => state.weatherModule.isCelcius);
+
   let history = useHistory();
   const dispatch = useDispatch();
   const goToHomePage = () => {
@@ -24,6 +26,7 @@ export const SingleFavouriteCity = ({ city }) => {
     goToHomePage();
   };
 
+   let celciusTemp = utilService.cToF(temp)
   return (
     <div className="single-fav-container" onClick={handleClick}>
       <img
@@ -34,7 +37,7 @@ export const SingleFavouriteCity = ({ city }) => {
         alt=""
       />
       <h2>{cityName} </h2>
-      <p> {temp}F° </p>
+      {degreeType ? <p> {celciusTemp}C° </p> : <p> {temp}F° </p>}
     </div>
   );
 };

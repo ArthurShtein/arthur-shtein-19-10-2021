@@ -20,12 +20,8 @@ export const SingleDayForecast = ({ item }) => {
   weekDay[5] = "Friday";
   weekDay[6] = "Saturday";
 
-let cMinTemp = cToF(minTemp)
-let cMaxTemp = cToF(maxTemp)
-  function cToF(fTemp) {
-    var fToCel = ((fTemp - 32) * 5) / 9;
-    return Math.floor(fToCel);
-  }
+  let cMinTemp = utilService.cToF(minTemp);
+  let cMaxTemp = utilService.cToF(maxTemp);
 
   if (!item) return <div> Loading ... </div>;
   return (

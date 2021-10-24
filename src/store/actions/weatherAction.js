@@ -27,30 +27,33 @@ export function loadCurrentLocation(name) {
 export function saveToFavourites(city) {
   return (dispatch) => {
     const finalFavourites = weatherService.checkFavourites(city);
-    console.log("finalFavourites >>>>", finalFavourites);
     dispatch({ type: "SET_FAVOURITES", finalFavourites });
   };
 }
 
 export function setToCelcius(boolean) {
-  console.log(boolean);
   return (dispatch) => {
     dispatch({ type: "SET_TO_CELCIUS", boolean });
   };
 }
 
 export function saveNewCityKey(key) {
-  console.log('KEY >>>', key);
   return (dispatch) => {
     dispatch({ type: "SET_CITY_KEY", key });
   };
 }
 
-export function saveNewCityName(name){
-    console.log("KEY >>>", name);
-  return (dispatch)=> {
-    dispatch({ type: "SET_CURRENT_LOCATION", name});
-  }
+export function saveNewCityName(name) {
+  return (dispatch) => {
+    dispatch({ type: "SET_CURRENT_LOCATION", name });
+  };
+}
+
+export function toggleIsFavourite(cityObject) {
+  return (dispatch) => {
+    cityObject.isFavourite = !cityObject.isFavourite;
+    dispatch({ type: "TOGGLE_FAVOURITE_CITY", cityObject });
+  };
 }
 
 export function saveSingleForecast(name, cityKey) {
@@ -64,13 +67,8 @@ export function saveSingleForecast(name, cityKey) {
       cityKey: cityKey,
       temp: fTemp,
       icon: currentLocationResult[0].WeatherIcon,
+      isFavourite: false,
     };
     dispatch({ type: "SET_SINGLE_FORECAST", singleNameKey });
-    // const test = useSelector((state) => state.weatherModule.singleForecast);
-    // console.log(test, '<<<< TEST ');
   };
-
-  // return (dispatch) => {
-  //   dispatch({ type: "SET_SINGLE_FORECAST", name, cityKey });
-  // };
 }

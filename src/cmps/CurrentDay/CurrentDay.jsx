@@ -4,14 +4,16 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { utilService } from "../../utils.js";
 import { useDispatch, useSelector } from "react-redux";
-import { saveToFavourites } from "../../store/actions/weatherAction.js";
+import {
+  saveToFavourites,
+  toggleIsFavourite,
+} from "../../store/actions/weatherAction.js";
 import "./CurrentDay.css";
 
 export const CurrentDay = ({ cityName }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
-  // const favourites = useSelector((state) => state.weatherModule.favourites);
-  // console.log("ALL FAVOURITES CITY>>>>", favourites);
+  const favourites = useSelector((state) => state.weatherModule.favourites);
   const dispatch = useDispatch();
 
   const singleForecast = useSelector(
@@ -21,14 +23,11 @@ export const CurrentDay = ({ cityName }) => {
   const degreeType = useSelector((state) => state.weatherModule.isCelcius);
 
   let fTemp = singleForecast.temp;
-  let celciusTemp = cToF(fTemp);
-  function cToF(fTemp) {
-    var fToCel = ((fTemp - 32) * 5) / 9;
-    return Math.floor(fToCel);
-  }
+  let celciusTemp = utilService.cToF(fTemp);
 
   function handleClick() {
-    setIsFavourite(!isFavourite);
+    if (!singleForecast.isFavourite) setIsFavourite(!isFavourite);
+    dispatch(toggleIsFavourite(singleForecast));
     dispatch(saveToFavourites(singleForecast));
   }
 
@@ -49,11 +48,17 @@ export const CurrentDay = ({ cityName }) => {
           </div>
         </div>
         <div className="right-section">
-          {isFavourite ? (
-            <FavoriteIcon className="full-icon" />
-          ) : (
-            <FavoriteBorderIcon className="icon"> </FavoriteBorderIcon>
+          {singleForecast.isFavourite && (
+            <span>
+              <FavoriteIcon className="full-icon" />
+            </span>
           )}
+          {!singleForecast.isFavourite && (
+            <span>
+              <FavoriteBorderIcon className="icon"> </FavoriteBorderIcon>
+            </span>
+          )}
+
           <Button variant="contained" onClick={handleClick}>
             Save to favourites
           </Button>
