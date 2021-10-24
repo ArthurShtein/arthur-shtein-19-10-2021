@@ -23,7 +23,9 @@ export const  Home = () => {
   const [cityKey, setCityKey] = useState("215854");
   const [cityName, setCityName] = useState("Tel Aviv");
   const [className, setClassName] = useState("");
-
+ 
+  
+ 
   const dispatch = useDispatch();
   const inputResults = useSelector(
     (state) => state.weatherModule.searchOptions
@@ -32,6 +34,7 @@ export const  Home = () => {
   const handleChange = (e) => {
     const text = e.target.value;
     dispatch(loadAutoComplete(text));
+
   };
 
   const handleChanges = (key, label) => {
@@ -73,6 +76,7 @@ export const  Home = () => {
         </div>
         <CurrentDay cityName={cityName} />
         <FiveDaysForecast />
+        <h4 className="by"> Made by Arthur Shtein</h4>
       </div>
     </>
   );

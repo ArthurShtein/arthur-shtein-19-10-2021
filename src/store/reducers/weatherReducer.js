@@ -12,7 +12,7 @@ export function weatherReducer(state = INITIAL_STATE, action) {
     case "SET_CURRENT_LOCATION":
       return {
         ...state,
-        currentLocation: action.currentLocation,
+        currentLocation: action.name,
       };
     case "SET_SEARCH_OPTIONS":
       return {
@@ -42,7 +42,7 @@ export function weatherReducer(state = INITIAL_STATE, action) {
     case "SET_FAVOURITES":
       return {
         ...state,
-        favourites: action.cityName
+        favourites: action.finalFavourites,
       };
     default:
       return state;

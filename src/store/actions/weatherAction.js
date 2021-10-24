@@ -10,8 +10,6 @@ export function loadAutoComplete(searchValue) {
   };
 }
 
-
-
 export function loadFiveDaysForecast(cityKey) {
   return async (dispatch) => {
     const fiveDaysResult = await weatherService.getFiveDaysForecast(cityKey);
@@ -26,16 +24,26 @@ export function loadCurrentLocation(name) {
   };
 }
 
-export function saveToFavourites(object) {
+export function saveToFavourites(city) {
   return (dispatch) => {
-    dispatch({ type: "SET_FAVOURITES" , object});
-  }
+    const finalFavourites = weatherService.checkFavourites(city);
+    console.log("finalFavourites >>>>", finalFavourites);
+    dispatch({ type: "SET_FAVOURITES", finalFavourites });
+  };
 }
 
 export function saveNewCityKey(key) {
+  console.log('KEY >>>', key);
   return (dispatch) => {
     dispatch({ type: "SET_CITY_KEY", key });
   };
+}
+
+export function saveNewCityName(name){
+    console.log("KEY >>>", name);
+  return (dispatch)=> {
+    dispatch({ type: "SET_CURRENT_LOCATION", name});
+  }
 }
 
 export function saveSingleForecast(name, cityKey) {
@@ -46,6 +54,7 @@ export function saveSingleForecast(name, cityKey) {
     const fTemp = currentLocationResult[0].Temperature.Imperial.Value;
     const singleNameKey = {
       cityName: name,
+      cityKey: cityKey,
       temp: fTemp,
       icon: currentLocationResult[0].WeatherIcon,
     };

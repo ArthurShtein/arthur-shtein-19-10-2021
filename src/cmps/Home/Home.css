@@ -44,3 +44,10 @@
 .toggle-btn:hover{
   background-color: #065bb1;
 }
+
+.by {
+  margin: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { SingleFavouriteCity } from "../SingleFavouriteCity/SingleFavouriteCity";
+import "./Favourites.css";
 
 export const Favourites = () => {
-  //   const favourites = useSelector((state) => state.weatherModule.favourites);
-  //   console.log(favourites);
+  // const [favCitys, setFavCitys] = useState([]);
+  const favourites = useSelector((state) => state.weatherModule.favourites);
+  // setFavCitys(favourites);
 
-  useEffect(() => {
-    let favouritesFromData = JSON.parse(localStorage.getItem("favourites"));
-  }, []);
 
-  return <div></div>;
+  if (!favourites) return <div> No Favourites Citys </div>;
+  return (
+    <div className="favourites-container">
+      {favourites.map((city, index) => {
+        return <SingleFavouriteCity city={city}></SingleFavouriteCity>;
+      })}
+    </div>
+  );
 };

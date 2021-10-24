@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header>
       <div> Herolo Weather Task </div>
-      <div>
+      <div className='links'>
         <Link to="/"> Home </Link>
         <Link to="/favourites"> Favourites </Link>
       </div>
