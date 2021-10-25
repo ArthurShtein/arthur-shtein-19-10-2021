@@ -53,11 +53,8 @@ export const Home = () => {
       setClassName("");
     }
   };
-  // const cityNameFromState = useSelector((state)=> state.weatherModule.cityName)
-  // setCityName(cityNameFromState)
 
   const changeToCelcius = () => {
-    console.log("changed...");
     setCelcius(!celcius);
     dispatch(setToCelcius(celcius));
   };
@@ -92,16 +89,6 @@ export const Home = () => {
                 label="Temperature Switcher"
               />
             </FormGroup>
-            {/* <FormGroup>
-              <FormControlLabel
-                control={<Switch defaultChecked onClick={changeTheme} />}
-                label="Label"
-              />
-            </FormGroup> */}
-            {/* <FormControlLabel>
-                <Switch onClick={changeTheme} label="Label"></Switch>
-              </FormControlLabel>
-            <Switch color="warning" onClick={changeToCelcius}></Switch> */}
           </div>
           <h2 className="header-search">Search the weather in any city:</h2>
           <Autocomplete

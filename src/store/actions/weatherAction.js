@@ -1,5 +1,4 @@
 import { weatherService } from "../../weatherService/weatherService";
-import { useSelector } from "react-redux";
 
 export function loadAutoComplete(searchValue) {
   return async (dispatch) => {
@@ -14,13 +13,6 @@ export function loadFiveDaysForecast(cityKey) {
   return async (dispatch) => {
     const fiveDaysResult = await weatherService.getFiveDaysForecast(cityKey);
     dispatch({ type: "SET_FIVE_DAYS_FORECAST", fiveDaysResult });
-  };
-}
-
-export function loadCurrentLocation(name) {
-  return async (dispatch) => {
-    const currLocationResult = await weatherService.getCurrentLocation(name);
-    // dispatch({ type: "SET_SINGLE_FORECAST", currLocationResult });
   };
 }
 
@@ -50,8 +42,10 @@ export function saveNewCityName(name) {
 }
 
 export function toggleIsFavourite(cityObject) {
+  console.log("cityObject >>> ", cityObject);
   return (dispatch) => {
     cityObject.isFavourite = !cityObject.isFavourite;
+    console.log("After Change isFavourite >>> ", cityObject);
     dispatch({ type: "TOGGLE_FAVOURITE_CITY", cityObject });
   };
 }

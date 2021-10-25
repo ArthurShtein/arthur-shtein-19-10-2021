@@ -16,7 +16,7 @@ const API_KEY = "4aBBAPNL6URV8G56agI6OJks01WPFlSa";
 async function getCurrentLocation(locationKey) {
   try {
     const { data } = await axios.get(
-      `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}`
+      `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}`
     );
     return data;
   } catch (error) {
@@ -28,7 +28,7 @@ async function getCurrentLocation(locationKey) {
 async function getAutoComplete(searchValue) {
   try {
     let { data } = await axios.get(
-      `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${searchValue}`
+      `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${searchValue}`
     );
     return data;
   } catch (error) {
@@ -40,7 +40,7 @@ async function getAutoComplete(searchValue) {
 async function getFiveDaysForecast(locationKey) {
   try {
     let { data } = await axios.get(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY}`
+      `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY}`
     );
     return data.DailyForecasts;
   } catch (error) {

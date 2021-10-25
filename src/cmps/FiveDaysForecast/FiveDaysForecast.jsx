@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadFiveDaysForecast, saveNewCityName } from "../../store/actions/weatherAction";
+import { loadFiveDaysForecast } from "../../store/actions/weatherAction";
 import { SingleDayForecast } from "../SingleDayForecast/SingleDayForecast"
 import './FiveDaysForecast.css'
 
@@ -13,7 +13,6 @@ export const FiveDaysForecast = () => {
 
   useEffect(() => {
     dispatch(loadFiveDaysForecast(keyResult));
-    // dispatch(saveNewCityName(keyResult));
   }, [keyResult]);
 
   return (
