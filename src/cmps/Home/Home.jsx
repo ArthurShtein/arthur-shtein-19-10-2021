@@ -90,7 +90,7 @@ export const Home = () => {
               />
             </FormGroup>
           </div>
-          <h2 className="header-search">Search the weather in any city:</h2>
+          <h2 className="header-search">Search The Weather In Any City</h2>
           <Autocomplete
             className="input"
             disablePortal

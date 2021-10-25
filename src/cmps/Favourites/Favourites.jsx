@@ -6,24 +6,16 @@ import "./Favourites.css";
 export const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
 
-  let favCitysFromLocal = JSON.parse(localStorage.getItem('favourites'))
-  let favFromState = useSelector(
-    (state) => state.weatherModule.favourites
-  );
+  let favCitysFromLocal = JSON.parse(localStorage.getItem("favourites"));
+  let favFromState = useSelector((state) => state.weatherModule.favourites);
 
   if (favCitysFromLocal) {
-
-    
     favFromState = favCitysFromLocal;
-    console.log("favFromState >>>>", favFromState);
   }
-  // if (favCitysFromLocal) {
-  //   favFromState = favCitysFromLocal;
-  // }
 
-    useEffect(() => {
-      setFavourites(favFromState);
-    }, []);
+  useEffect(() => {
+    setFavourites(favFromState);
+  }, []);
 
   if (!favourites)
     <div>

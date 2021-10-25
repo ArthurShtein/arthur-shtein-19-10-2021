@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   saveToFavourites,
   toggleIsFavourite,
-  saveNewCityKey,
-  saveNewCityName,
 } from "../../store/actions/weatherAction.js";
 
 import "./CurrentDay.css";
@@ -28,14 +26,12 @@ export const CurrentDay = ({ cityName }) => {
   let celciusTemp = utilService.cToF(fTemp);
 
   function handleClick() {
-    // if (!singleForecast.isFavourite) setIsFavourite(!isFavourite);
     dispatch(toggleIsFavourite(singleForecast));
     setIsFavourite(singleForecast.isFavourite);
     dispatch(saveToFavourites(singleForecast));
   }
 
   const checkFromFavourites = () => {
-    console.log("singleForecast.isFavourite >>>", singleForecast.isFavourite);
     if (singleForecast.isFavourite) {
       setIsFavourite(true);
     } else {
@@ -44,17 +40,13 @@ export const CurrentDay = ({ cityName }) => {
   };
 
   useEffect(() => {
-    // dispatch(saveNewCityKey(singleForecast.cityKey));
-    // dispatch(saveNewCityName(singleForecast.cityName));
-
     checkFromFavourites();
-    console.log(isFavourite);
     setDayFromState(singleForecast.cityName);
   }, [isFavourite]);
 
   return (
     <div className="main-curr-day">
-      <div className="curr-day-containגer">
+      <div className="curr-day-container">
         <div className="left-section">
           <img
             className="main-img"
@@ -74,18 +66,6 @@ export const CurrentDay = ({ cityName }) => {
           ) : (
             <FavoriteBorderIcon className="icon"> </FavoriteBorderIcon>
           )}
-
-          {/* {singleForecast.isFavourite && (
-            <span>
-              <FavoriteIcon className="full-icon" />
-            </span>
-          )}
-          {!singleForecast.isFavourite && (
-            <span>
-              <FavoriteBorderIcon className="icon"> </FavoriteBorderIcon>
-            </span>
-          )} */}
-
           <Button variant="contained" onClick={handleClick}>
             Save to favourites
           </Button>

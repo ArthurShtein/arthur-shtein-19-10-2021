@@ -26,7 +26,7 @@ export const SingleFavouriteCity = ({ city }) => {
     goToHomePage();
   };
 
-   let celciusTemp = utilService.cToF(temp)
+  let celciusTemp = utilService.cToF(temp);
   return (
     <div className="single-fav-container" onClick={handleClick}>
       <img

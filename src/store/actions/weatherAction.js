@@ -42,10 +42,8 @@ export function saveNewCityName(name) {
 }
 
 export function toggleIsFavourite(cityObject) {
-  console.log("cityObject >>> ", cityObject);
   return (dispatch) => {
     cityObject.isFavourite = !cityObject.isFavourite;
-    console.log("After Change isFavourite >>> ", cityObject);
     dispatch({ type: "TOGGLE_FAVOURITE_CITY", cityObject });
   };
 }

@@ -30,11 +30,6 @@ export function weatherReducer(state = INITIAL_STATE, action) {
         ...state,
         fiveDaysForecast: action.fiveDaysResult,
       };
-    // case "SET_CITY_NAME":
-    //   return {
-    //     ...state,
-    //     currentLocation: action.name,
-    //   };
     case "SET_SINGLE_FORECAST":
       return {
         ...state,
