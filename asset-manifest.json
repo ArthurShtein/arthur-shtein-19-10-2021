@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.7fdd3aef.chunk.css",
-    "main.js": "/weather-app/static/js/main.7c9a7816.chunk.js",
-    "main.js.map": "/weather-app/static/js/main.7c9a7816.chunk.js.map",
-    "runtime-main.js": "/weather-app/static/js/runtime-main.07cb7417.js",
-    "runtime-main.js.map": "/weather-app/static/js/runtime-main.07cb7417.js.map",
-    "static/js/2.a69dfd3a.chunk.js": "/weather-app/static/js/2.a69dfd3a.chunk.js",
-    "static/js/2.a69dfd3a.chunk.js.map": "/weather-app/static/js/2.a69dfd3a.chunk.js.map",
-    "index.html": "/weather-app/index.html",
-    "static/css/main.7fdd3aef.chunk.css.map": "/weather-app/static/css/main.7fdd3aef.chunk.css.map",
-    "static/js/2.a69dfd3a.chunk.js.LICENSE.txt": "/weather-app/static/js/2.a69dfd3a.chunk.js.LICENSE.txt"
+    "main.css": "/arthur-shtein-19-10-2021/static/css/main.7fdd3aef.chunk.css",
+    "main.js": "/arthur-shtein-19-10-2021/static/js/main.7c9a7816.chunk.js",
+    "main.js.map": "/arthur-shtein-19-10-2021/static/js/main.7c9a7816.chunk.js.map",
+    "runtime-main.js": "/arthur-shtein-19-10-2021/static/js/runtime-main.4f839825.js",
+    "runtime-main.js.map": "/arthur-shtein-19-10-2021/static/js/runtime-main.4f839825.js.map",
+    "static/js/2.a69dfd3a.chunk.js": "/arthur-shtein-19-10-2021/static/js/2.a69dfd3a.chunk.js",
+    "static/js/2.a69dfd3a.chunk.js.map": "/arthur-shtein-19-10-2021/static/js/2.a69dfd3a.chunk.js.map",
+    "index.html": "/arthur-shtein-19-10-2021/index.html",
+    "static/css/main.7fdd3aef.chunk.css.map": "/arthur-shtein-19-10-2021/static/css/main.7fdd3aef.chunk.css.map",
+    "static/js/2.a69dfd3a.chunk.js.LICENSE.txt": "/arthur-shtein-19-10-2021/static/js/2.a69dfd3a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.07cb7417.js",
+    "static/js/runtime-main.4f839825.js",
     "static/js/2.a69dfd3a.chunk.js",
     "static/css/main.7fdd3aef.chunk.css",
     "static/js/main.7c9a7816.chunk.js"
